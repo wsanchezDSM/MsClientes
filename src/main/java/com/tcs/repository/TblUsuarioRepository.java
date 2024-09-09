@@ -1,0 +1,17 @@
+package com.tcs.repository;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
+import com.tcs.entity.TblUsuario;
+
+@Repository
+public interface TblUsuarioRepository extends JpaRepository<TblUsuario,Long>,JpaSpecificationExecutor<TblUsuario> {
+	
+	List<TblUsuario> findAllByEstadoTrue();
+	
+	Optional<TblUsuario> findByIdAndEstadoTrue(Long id);
+	
+}
