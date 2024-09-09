@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.*;
 
@@ -21,6 +22,7 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 public class TblUsuario{
 
@@ -32,7 +34,7 @@ public class TblUsuario{
 	@Column(name="contrasenia")
 	private String contrasenia;
 	
-    @OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "id_persona", referencedColumnName = "id")
     private TblPersona tblPersona;
     
