@@ -3,6 +3,8 @@ package com.tcs.services;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Optional;
+
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,6 +61,8 @@ public class TblUsuarioService {
 		}
 		return salida;
 	}
+	
+
 
 	public HashMap<String, Object> obtieneCliente(Long id){
 		HashMap<String, Object> salida=new HashMap<>();
